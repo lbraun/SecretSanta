@@ -37,6 +37,7 @@ class ParticipantMailQuery
             SELECT participant
             FROM IntractoSecretSantaBundle:Participant participant
               JOIN participant.party party
+              LEFT JOIN IntractoSecretSantaBundle:WishlistItem wishlist
             WHERE participant.wishlistUpdated = 0
               AND party.created = 1
               AND party.eventdate > :today
@@ -45,6 +46,7 @@ class ParticipantMailQuery
               AND (participant.wishlistUpdatedTime IS NULL OR participant.wishlistUpdatedTime < :oneHourAgo)
               AND (participant.emptyWishlistReminderSentTime IS NULL OR participant.emptyWishlistReminderSentTime < :oneWeekAgo)
               AND participant.subscribedForUpdates = 1
+              AND wishlist.id IS NULL
         ');
 
         $query->setParameter('today', $today, \Doctrine\DBAL\Types\Type::DATETIME);
