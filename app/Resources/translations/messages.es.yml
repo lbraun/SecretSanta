@@ -15,8 +15,8 @@ form-party:
         date_party: Fecha de tu fiesta Secret Santa
         location: Sitio de tu fiesta Secret Santa
         amount_to_spend: Cantidad a gastar
-#        message:
-#        confirmed:
+        message: Mensaje adicional en el email. ¡Expresa todo tu amor aquí!
+        confirmed: Sí, tengo el permiso para utilizar el email de los participantes para Secret Santa
 
 # PartyController
 party_controller:
@@ -24,13 +24,14 @@ party_controller:
         message: |
             Hola (NAME),
 
-            (ADMINISTRATOR) creó un evento Secret Santa y te ha listado como participante.
+            (ADMINISTRATOR) creó un evento Secret Santa y te ha añadido como participante.
 
-            Únete a la diversión Secret Santa y descubre quién es tu amigo del regalo haciendo clic en el siguiente botón.
+            Únete a la diversión Secret Santa y descubre a quién tienes que hacer el regalo haciendo clic en el siguiente botón.
 
-            Puedes gastar hasta %amount% para tu regalo. Pero, por supuesto, se permite crear tu propio regalo, es más, ¡se te anima a ello!
+            Puedes gastar hasta %amount% en tu regalo. También puedes crear el regalo con tus propias manos. ¡Es un gran detalle y te animamos a ello! ¡A tu amigo le encantará!
 
-            La fiesta Secret Santa está planeada para el %eventdate% y tiene lugar en %location%. ¡Asegúrate de traer tu regalo!
+
+            La fiesta Secret Santa está planeada para el %eventdate% y tendrá lugar en %location%. ¡Asegúrate de traer tu regalo!
 
             %message%
 
@@ -44,17 +45,17 @@ party-create:
             title: Tu fiesta <br/><small>en <span class="accent">3 sencillos pasos </span></small>
             list:
                 one: Haz una lista de tus participantes
-                two: Añadir un mensaje
+                two: Añade un mensaje
                 three: ¡Envía!
             get_started: ¡Prepárate!
 
     what_is:
         title: ¿Qué es Secret Santa?
         intro: >
-            <p>Es un <strong>organizador de intercambio de regalos gratuito</strong> en línea Secret Santa. Organiza una fiesta Secret Santa con tus amigos, familia o incluso compañeros de trabajo. Después de recibir el correo de Secret Santa puedes añadir tu propia <strong>lista de deseos</strong>, que será entregada a tu Secret Santa.</p>
+            <p>Es un <strong>organizador de intercambio de regalos gratuito</strong> en línea. Organiza una fiesta Secret Santa con tus amigos, familia o incluso compañeros de trabajo o colegio. Después de recibir el correo de Secret Santa puedes añadir tu propia <strong>lista de deseos</strong>, que será entregada a tu Secret Santa.</p>
 
-            <p>Cada año cerca de la época de <strong> Navidad</strong> la gente de todo el mundo intercambia regalos.<br/>
-            Para hacer que las cosas sigan siendo interesantes, podéis <strong>asignar aleatoriamente personas</strong> para entregaros el regalo unos a otros.</p>
+            <p>Cada año cerca de la época de <strong>Navidad</strong> la gente de todo el mundo intercambia regalos para demostrar su afecto.<br/>
+            Para hacer que las cosas sigan siendo interesantes, puedes <strong>asignar aleatoriamente personas</strong> para entregarse el regalo unos a otros.</p>
 
     add_participants: Añade tus participantes
     list_adminstrator: Esta persona también es el administrador de tu lista.
@@ -62,17 +63,17 @@ party-create:
         title: Añade un mensaje personal
         description: Añade un mensaje personal para los participantes.
     import:
-        instructions: Añade más persones a tu evenemento de una vez. Descarga <a href="%downloadPath%">este archivo CSV</a> y añade los nombres y correos electrónicos de las personas que quieres invitar. Cuando estás listo, arrastra tu archivo CSV hasta el compartimiento abajo y tus amigos o compañeros de trabajo seran añadido a tu evenemento de una manera rápido y fácil.
-        too_many_files: Sírvase cargar sólo un archivo.
+        instructions: Añade más personas a tu evento de una vez. Descarga <a href="%downloadPath%">este archivo CSV</a> y añade los nombres y correos electrónicos de las personas que quieres invitar. Cuando estés listo, arrastra tu archivo CSV hasta el compartimiento de abajo y tus amigos o compañeros de trabajo serán añadidos a tu evento de una manera rápida y fácil.
+        too_many_files: Sube un sólo archivo a la vez.
         wrong_format: El archivo que intentas cargar no tiene el formato deseado (csv o txt).
 
     btn:
-        add_person: Añadir persona
-        remove_person: Quitar esta persona
-        import_persons_open: A&ntilde;adir m&aacute;s personas con CSV
-        import_persons_do: A&ntilde;adir a tu fiesta
-        cancel: Cancelar
-        create_event: ¡Crear tu evento!
+        add_person: Añade una persona
+        remove_person: Quita a la persona
+        import_persons_open: Añade varias personas con CSV
+        import_persons_do: Añade tu fiesta
+        cancel: Cancela
+        create_event: ¡Crea tu evento!
 
     label:
         host: Organizador
@@ -88,33 +89,39 @@ party-created:
 
 # Party/deleted.html.twig
 party-deleted:
-    title: ¡Tu lista Secret Santa fue borrada!
+    title: ¡Tu lista Secret Santa ha sido borrada!
     body: <p>Gracias por usar el Secret Santa Organizer. ¡Esperamos verte otra vez el próximo año!</p>
-    create_new_list: ¡Crear una nueva lista Secret Santa!
+    create_new_list: ¡Crea una nueva lista Secret Santa!
 #    info_reuse:
 
 # Party/forgotLink.html.twig
 party-forgot_link:
-#    title:
-#    description:
-#    submit_btn: ?
+    title: 'Solicitar información de mis fiestas'
+    description: 'Escribe tu dirección de correo electrónico y te enviaremos el listado con todas las fiestas que has creado y sus participantes. Podrás ver sólo tus próximas fiestas.'
+    submit_btn: 'Envíame la información.'
+    info_reuse: 'Si quieres crear una fiesta, basada en una anterior, puedes solicitar la lista de tus fiestas pasadas <a href="%reusepath%">here</a>.'
 
 # Party/getReuseUrl.html.twig
-#party-get_reuse_url:
-#    title:
-#    description:
-#    form:
-#        submit-btn:
+party-get_reuse_url:
+    title: 'Usar una fiesta anterior'
+    description: 'Escribe tu dirección de correo electrónico y te enviaremos la lista de tus fiestas creadas en los dos últimos años y sus respectivos links. Ésto sólo funciona para las fiestas ya creadas.'
+    form:
+        submit-btn: 'Enviar email'
 
 # Wishlist/showAll.html.twig
 wishlist-show_all:
-    title: Secret Santa Listas de deseos
-#    back:
+    title: Todas las listas de deseos de Secret Santa
+    back: Volver a tu página de gestión
 
 # Static/faq.html.twig
 static-faq:
-#    title: ?
-#    body: ?
+    title: Preguntas frecuentes
+    body: >
+        <p> Esta es la lista de preguntas frecuentes que te ayudará a entender cómo funciona Secret Santa. </p>
+
+        <a href="what"></a><h2>¿Qué es Secret Santa?</h2>
+        <p>Es un organizador gratuito de intercambio de regalos secreto! Organiza una fiesta Secret Santa con amigos, familiares or incluso compañeros de trabajo o colegio. Cada año cerca de las fiestas de Navidad y Año Nuevo las personas alrededor de todo el mundo intercabia regalos como muestra de afecto y cariño.
+        Para hacer que las cosas sigan siendo interesantes, puedes asignar aleatoriamente personaspara entregarse el regalo unos a otros.
     create_new_list: ¡Crear una nueva lista Secret Santa!
 
 # Helper/prototypeParticipant.html.twig
